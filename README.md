@@ -1,6 +1,6 @@
 # Simple Bookstore Management System
 
-React app
+Domo: [https://simple-bookstore-management.netlify.app/](https://simple-bookstore-management.netlify.app/)
 
 
 ## Installaion
