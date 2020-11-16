@@ -112,7 +112,7 @@ const App = () => {
       <h1>Bookstore management</h1>
       {renderList()}
       <h1>Your cart</h1>
-      {cart.length > 0 ? renderCart() : 'Empty cart'}
+      {cart.length > 0 ? renderCart() : <div>Empty cart</div>}
       <span>
         ** discount rules -> if customer buy a book get no discount, but if buy
         difference books will get discount 5% increase by number of difference
