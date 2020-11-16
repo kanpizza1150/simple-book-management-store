@@ -1,4 +1,4 @@
-# simple book store management system
+# Simple Bookstore Management System
 
 React app
 
