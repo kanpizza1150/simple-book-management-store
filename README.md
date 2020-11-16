@@ -1,6 +1,6 @@
 # Simple Bookstore Management System
 
-Domo: [https://simple-bookstore-management.netlify.app/](https://simple-bookstore-management.netlify.app/)
+Demo: [https://simple-bookstore-management.netlify.app/](https://simple-bookstore-management.netlify.app/)
 
 
 ## Installaion
