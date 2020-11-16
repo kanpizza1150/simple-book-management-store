@@ -114,9 +114,9 @@ const App = () => {
       <h1>Your cart</h1>
       {cart.length > 0 ? renderCart() : <div>Empty cart</div>}
       <span>
-        ** discount rules -> if customer buy a book get no discount, but if buy
+        ** discount rules: if customer buy a book get no discount, but if buy
         difference books will get discount 5% increase by number of difference
-        books
+        books.
       </span>
       <h3>Price: {total} THB</h3>
       <h4>Discount: {discountRate}%</h4>
