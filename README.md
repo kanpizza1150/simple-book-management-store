@@ -1,5 +1,8 @@
 # simple book store management system
 
+React app
+
+
 ## Installaion
 
 ```
