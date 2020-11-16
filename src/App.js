@@ -3,6 +3,7 @@ import './App.scss'
 const App = () => {
   const [cart, setCart] = useState([])
   const [total, setTotal] = useState(0)
+  const [discountRate, setDiscountRate] = useState(0)
   const books = [
     { name: 'book-1', price: 20, quantity: 50 },
     { name: 'book-2', price: 25, quantity: 50 },
@@ -15,12 +16,17 @@ const App = () => {
 
   const [stock, setStock] = useState(books)
   useEffect(() => {
+    const calculateDiscount = () => {
+      const n = cart.length
+      return n === 0 ? 0 : (n - 1) * 5
+    }
     const sum = cart.reduce((acc, curr) => acc + curr.totalPrice, 0)
+    const discountPercentage = calculateDiscount()
     setTotal(sum)
+    setDiscountRate(discountPercentage)
   }, [cart])
 
   const descendingSort = (a, b) => (a.name > b.name ? 1 : -1)
-
   const addToCart = (book) => {
     let tempCart = cart
     const index = cart.findIndex((item) => item.name === book.name)
@@ -54,7 +60,7 @@ const App = () => {
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          <th>Price (THB)</th>
           <th>Quantity</th>
         </tr>
       </thead>
@@ -62,8 +68,8 @@ const App = () => {
         {stock.map((book) => (
           <tr key={book.name}>
             <td>{book.name}</td>
-            <td>price:{book.price}</td>
-            <td>quantity:{book.quantity}</td>
+            <td>{book.price}</td>
+            <td>{book.quantity}</td>
             <td>
               <button
                 onClick={() => addToCart(book)}
@@ -83,9 +89,9 @@ const App = () => {
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          <th>Price (THB)</th>
           <th>Quantity</th>
-          <th>Total</th>
+          <th>Total (THB)</th>
         </tr>
       </thead>
       <tbody>
@@ -100,14 +106,23 @@ const App = () => {
       </tbody>
     </table>
   )
-
+  const discountAmount = (total * discountRate) / 100
   return (
     <div>
       <h1>Bookstore management</h1>
       {renderList()}
       <h1>Your cart</h1>
-      {renderCart()}
-      <h4>Total:{total}</h4>
+      {cart.length > 0 ? renderCart() : 'Empty cart'}
+      <span>
+        ** discount rules -> if customer buy a book get no discount, but if buy
+        difference books will get discount 5% increase by number of difference
+        books
+      </span>
+      <h3>Price: {total} THB</h3>
+      <h4>Discount: {discountRate}%</h4>
+      <h4>Discount Amount: {discountAmount} THB</h4>
+      <hr />
+      <h2>Total: {total - discountAmount} THB</h2>
     </div>
   )
 }
