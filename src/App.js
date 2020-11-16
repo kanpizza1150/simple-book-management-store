@@ -5,12 +5,12 @@ const App = () => {
   const [total, setTotal] = useState(0)
   const [discountRate, setDiscountRate] = useState(0)
   const books = [
-    { name: 'book-1', price: 20, quantity: 50 },
-    { name: 'book-2', price: 25, quantity: 50 },
-    { name: 'book-3', price: 30, quantity: 50 },
-    { name: 'book-4', price: 50, quantity: 50 },
-    { name: 'book-5', price: 20, quantity: 50 },
-    { name: 'book-6', price: 15, quantity: 50 },
+    { name: 'book-1', price: 20, quantity: 100 },
+    { name: 'book-2', price: 25, quantity: 20 },
+    { name: 'book-3', price: 30, quantity: 10 },
+    { name: 'book-4', price: 50, quantity: 5 },
+    { name: 'book-5', price: 20, quantity: 15 },
+    { name: 'book-6', price: 15, quantity: 2 },
     { name: 'book-7', price: 30, quantity: 50 },
   ]
 
@@ -109,7 +109,7 @@ const App = () => {
   const discountAmount = (total * discountRate) / 100
   return (
     <div>
-      <h1>Bookstore management</h1>
+      <h1>Bookstore Management System</h1>
       {renderList()}
       <h1>Your cart</h1>
       {cart.length > 0 ? renderCart() : <div>Empty cart</div>}
